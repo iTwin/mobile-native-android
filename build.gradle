@@ -1,0 +1,23 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    repositories {
+        maven {
+            name 'deploy'
+            url 'https://maven.pkg.github.com/iTwin/mobile-native-android'
+            credentials {
+                username = deployRepoUsername
+                password = deployRepoPassword
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            groupId = deployGroupId ?: 'iTwinJs'
+            version = deployVersion
+            artifact(deployFileName) {
+                extension 'aar'
+            }
+        }
+    }
+}

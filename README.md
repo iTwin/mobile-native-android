@@ -12,4 +12,4 @@ Rather than using this package in a project, you should use the [mobile-sdk-andr
 
 ## About this Repository
 
-This repository contains the binary framework files used to build [iTwin.js](http://www.itwinjs.org) applications on iOS devices.
+This repository contains the binary framework files used to build [iTwin.js](http://www.itwinjs.org) applications on Android devices.
