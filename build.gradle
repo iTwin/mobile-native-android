@@ -1,22 +1,27 @@
 apply plugin: 'maven-publish'
 
+task build(type: Exec) {
+    commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/0.0.1/iTwinAndroidLibrary.aar'
+}
+
 publishing {
-    repositories {
-        maven {
-            name 'deploy'
-            url 'https://maven.pkg.github.com/iTwin/mobile-native-android'
-            credentials {
-                username = deployRepoUsername
-                password = deployRepoPassword
-            }
-        }
-    }
     publications {
         maven(MavenPublication) {
-            groupId = deployGroupId ?: 'iTwinJs'
-            version = deployVersion
-            artifact(deployFileName) {
+            groupId = 'iTwinJs'
+            version = '0.0.1'
+            artifact('iTwinAndroidLibrary.aar') {
                 extension 'aar'
+            }
+            pom {
+                name = 'iTwin.js Mobile Native'
+                description = 'iTwin.js Native library'
+                url = 'http://github.com/iTwin/mobile-native-android'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://github.com/iTwin/mobile-native-android/blob/main/LICENSE.md'
+                    }
+                }
             }
         }
     }
