@@ -4,4 +4,4 @@
 // See LICENSE.md in the project root for license terms and full copyright notice.
 //
 //---------------------------------------------------------------------------------------
-rootProject.name = 'itwin-mobile-native-android'
+rootProject.name = 'mobile-native-android'
