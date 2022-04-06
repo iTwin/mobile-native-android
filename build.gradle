@@ -7,14 +7,14 @@
 apply plugin: 'maven-publish'
 
 task assemble(type: Exec) {
-    commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/3.2.3/iTwinAndroidLibrary.aar'
+    commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/3.1.9/iTwinAndroidLibrary.aar'
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.github.itwin'
-            version = '3.2.3'
+            version = '3.1.9'
             artifact('iTwinAndroidLibrary.aar') {
                 extension 'aar'
             }
