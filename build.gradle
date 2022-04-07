@@ -6,8 +6,14 @@
 //---------------------------------------------------------------------------------------
 apply plugin: 'maven-publish'
 
+// This task is automatically called by jitpack.io
 task assemble(type: Exec) {
     commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/3.1.9/iTwinAndroidLibrary.aar'
+}
+
+// An alternative task for downloading (useful for authenticated downloads)
+task assembleGitHub(type: Exec) {
+    commandLine 'gh', 'release', 'download', '3.1.9', '-p', 'iTwinAndroidLibrary.aar'
 }
 
 publishing {
