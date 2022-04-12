@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------------------
 apply plugin: 'maven-publish'
 
-// This task is automatically called by jitpack.io
+// Downloads the AAR file from releases using wget so it can then be published to the local Maven repo
 task assemble(type: Exec) {
     commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/3.1.9/iTwinAndroidLibrary.aar'
 }
@@ -18,6 +18,16 @@ task assembleGitHub(type: Exec) {
 
 publishing {
     publications {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/itwin/mobile-native-android")
+                credentials {
+                    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                }
+            }
+        }
         maven(MavenPublication) {
             groupId = 'com.github.itwin'
             version = '3.1.9'
