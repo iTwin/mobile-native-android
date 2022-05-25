@@ -13,7 +13,7 @@ task assemble(type: Exec) {
 
 // An alternative task for downloading (useful for authenticated downloads)
 task assembleGitHub(type: Exec) {
-    commandLine 'gh', 'release', 'download', '3.1.9', '-p', 'iTwinAndroidLibrary.aar'
+    commandLine 'gh', 'release', 'download', '3.2.8', '-p', 'iTwinAndroidLibrary.aar'
 }
 
 publishing {
