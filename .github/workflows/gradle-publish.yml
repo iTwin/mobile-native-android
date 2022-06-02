@@ -26,13 +26,13 @@ jobs:
 # Following came from starter workflow, don't think they're needed
 #         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
 #         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+        
     - name: Download release
       uses: gradle/gradle-build-action@v2
       with:
         arguments: assembleGitHub
       env:
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
