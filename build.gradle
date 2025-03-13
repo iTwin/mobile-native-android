@@ -8,12 +8,12 @@ apply plugin: 'maven-publish'
 
 // Downloads the AAR file from releases using wget so it can then be published to the local Maven repo
 task assemble(type: Exec) {
-    commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/5.0.79/iTwinAndroidLibrary.aar'
+    commandLine 'wget', '-qN', 'https://github.com/iTwin/mobile-native-android/releases/download/4.10.39/iTwinAndroidLibrary.aar'
 }
 
 // An alternative task for downloading (useful for authenticated downloads)
 task assembleGitHub(type: Exec) {
-    commandLine 'gh', 'release', 'download', '5.0.79', '-p', 'iTwinAndroidLibrary.aar'
+    commandLine 'gh', 'release', 'download', '4.10.39', '-p', 'iTwinAndroidLibrary.aar'
 }
 
 publishing {
@@ -30,7 +30,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.github.itwin'
-            version = '5.0.79'
+            version = '4.10.39'
             artifact('iTwinAndroidLibrary.aar') {
                 extension 'aar'
             }
